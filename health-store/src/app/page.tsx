@@ -9,13 +9,15 @@ async function fetchData(): Promise<{
   categories: Filter[];
   blogs: Blog[];
 }> {
-  const homepageRes = await fetch("http://localhost:5001/homepage");
+  const homepageRes = await fetch("https://health-store.onrender.com/homepage");
   const homepage = await homepageRes.json();
 
-  const categoriesRes = await fetch("http://localhost:5001/productCategories");
+  const categoriesRes = await fetch(
+    "https://health-store.onrender.com/productCategories"
+  );
   const categories = await categoriesRes.json();
 
-  const blogsRes = await fetch("http://localhost:5001/blogs");
+  const blogsRes = await fetch("https://health-store.onrender.com/blogs");
   const blogs = await blogsRes.json();
 
   return { homepage, categories, blogs };

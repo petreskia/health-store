@@ -5,14 +5,18 @@ import { fetchRelatedProducts } from "@/app/lib/fetchProducts";
 import Image from "next/image";
 
 async function fetchData(id: string): Promise<ProductI> {
-  const productsRes = await fetch(`http://localhost:5001/products/${id}`);
+  const productsRes = await fetch(
+    `https://health-store.onrender.com/products/${id}`
+  );
   const product = await productsRes.json();
 
   return product;
 }
 
 export async function generateStaticParams() {
-  const allProductsRes = await fetch("http://localhost:5001/products");
+  const allProductsRes = await fetch(
+    "https://health-store.onrender.com/products"
+  );
   const allProducts = await allProductsRes.json();
 
   return allProducts.map((product: ProductI) => ({

@@ -13,10 +13,12 @@ async function fetchData(
   products: ProductI[];
   productsSizes: Filter[];
 }> {
-  const productsSizesRes = await fetch("http://localhost:5001/productSizes");
+  const productsSizesRes = await fetch(
+    "https://health-store.onrender.com/productSizes"
+  );
   const productsSizes = await productsSizesRes.json();
 
-  let url = "http://localhost:5001/products?";
+  let url = "https://health-store.onrender.com/products?";
   if (category) url += `type=${category}`;
   if (size) url += `${category && "&"}size=${size}`;
 
